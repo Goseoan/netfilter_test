@@ -1,13 +1,16 @@
 all : netfilter_test
 
-netfilter_test : packet.o main.o
-	gcc -lpcap -o netfilter_test packet.o main.o -lnetfilter_queue
+netfilter_test : netfilter.o main.o
+	gcc -lpcap -lnetfilter_queue -lcrypt -o netfilter_test netfilter.o main.o 
 
-packet.o : packet.c packet.h
-	gcc -lpcap -c -o packet.o packet.c -lnetfilter_queue
+hashmap.o : hashmap.c hashmap.h 
+	gcc -c -o hashmap.o hashmap.c 
 
-main.o : main.c packet.h
-	gcc -lpcap -c -o main.o main.c -lnetfilter_queue
+netfilter.o : netfilter.c netfilter.h hashmap.o
+	gcc -lpcap -lnetfilter_queue -lcrypt  -c -o netfilter.o netfilter.c 
+
+main.o : main.c netfilter.h hashmap.o
+	gcc -lpcap -lnetfilter_queue -lcrypt -c -o main.o hashmap.o main.c
 
 clean :
 	rm *.o netfilter_test

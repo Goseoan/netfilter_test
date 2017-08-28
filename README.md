@@ -24,7 +24,7 @@ apt install libmnl-dev libnfnetlink-dev libnetfilter-queue-dev
 
 - iptables setting
 ```
-iptables -A OUTPUT -j NFQUEU
+iptables -A OUTPUT -j NFQUEUE
 ```
 
 
@@ -40,3 +40,8 @@ make clean
 ```
 ./netfilter_test
 ```
+
+
+## reference
+
+https://github.com/rxi/map
