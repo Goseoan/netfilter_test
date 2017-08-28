@@ -9,8 +9,7 @@ static u_int32_t print_pkt (struct nfq_data *tb, int *drop_flag)
     struct nfqnl_msg_packet_hw *hwph;
     u_int32_t mark,ifi; 
     int ret;
-    unsigned char *data;
-    char *mal_site = "test.gilgil.net";
+    unsigned char *data;  
 
     ph = nfq_get_msg_packet_hdr(tb);
     if (ph) {

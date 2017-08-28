@@ -23,7 +23,7 @@ int find_url(const u_char * Buffer, char *m)
     strtok(tok_str," ");
     url = strtok(NULL," ");
 
-   // int *val =  map_get(&m, url);
+    //int *val =  map_get(&m, url);
 
 
     //printf ("\nmal_site : %s\n", mal_site);
@@ -47,7 +47,7 @@ int find_url(const u_char * Buffer, char *m)
 
 void make_mal_list(map_int_t * m)
 {
-   // map_set(&m, "test.gilgil.net", md5_crypt("test.gilgil.net"));
+  // map_set(&m, "test.gilgil.net", md5_crypt("test.gilgil.net"));
 
 }
 
