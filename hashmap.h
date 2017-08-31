@@ -9,6 +9,7 @@
 #define MAP_H
 
 #include <string.h>
+#include <stdlib.h>
 
 #define MAP_VERSION "0.1.0"
 
@@ -43,8 +44,9 @@ typedef struct {
 
 
 #define map_set(m, key, value)\
-  ( (m)->tmp = (value),\
-    map_set_(&(m)->base, key, &(m)->tmp, sizeof((m)->tmp)) )
+  ( (m)->tmp = map_set_(&(m)->base, key, &(m)->tmp, sizeof((m)->tmp)) )
+  /*( (m)->tmp = (value ),\
+    map_set_(&(m)->base, key, &(m)->tmp, sizeof((m)->tmp)) )*/
 
 
 #define map_remove(m, key)\

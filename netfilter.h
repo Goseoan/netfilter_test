@@ -22,6 +22,7 @@
 
 #include <crypt.h>
 #include "hashmap.h"
+#include <regex.h>
 
 static u_int32_t print_pkt (struct nfq_data *tb,int *);
 //int find_url(const u_char *, map_base_t *);

@@ -71,11 +71,13 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
 {
 	int drop_flag = 1;
     u_int32_t id = print_pkt(nfa, &drop_flag);
-    printf("entering callback\n");
-    if(drop_flag == 1)
+
+    //printf("entering callback\n");    
+    return nfq_set_verdict(qh, id, drop_flag? NF_ACCEPT : NF_DROP, 0, NULL);
+    /*if(drop_flag == 1)
       	return nfq_set_verdict(qh, id, NF_ACCEPT, 0, NULL);
     else
-    	return nfq_set_verdict(qh, id, NF_DROP, 0, NULL);
+    	return nfq_set_verdict(qh, id, NF_DROP, 0, NULL);*/
 }
 
 int main(int argc, char **argv)
