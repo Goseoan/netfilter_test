@@ -38,11 +38,11 @@ typedef struct {
   map_deinit_(&(m)->base)
 
 
-//#define map_get(m, key)\
+#define map_get(m, key)\
   ( (m)->ref = map_get_(&(m)->base, key) )
 
 
-//#define map_set(m, key, value)\
+#define map_set(m, key, value)\
   ( (m)->tmp = (value),\
     map_set_(&(m)->base, key, &(m)->tmp, sizeof((m)->tmp)) )
 
