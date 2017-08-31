@@ -24,14 +24,17 @@ int find_url(const u_char * Buffer, map_int_t *mal)
     strtok(tok_str," ");
     url = strtok(NULL," ");
 
-    int *val = map_get(&mal, url);
+    printf("hashmap key : %s\n", url);
+    if(url == NULL) {
+        return EXIT_FAILURE; 
+    }
+    
+    int *val = map_get(mal, url);
     printf("debug ht get val \n");
 
     //printf ("\nmal_site : %s\n", mal_site);
     //printf ("url : %s\n", url);
 
-    if(url == NULL)
-    	return EXIT_FAILURE; 
 
     //if( memcmp(url,mal_site,sizeof(url)) == 0 )
     if(val)
@@ -48,7 +51,7 @@ int find_url(const u_char * Buffer, map_int_t *mal)
 
 void make_mal_list(map_int_t  * m)
 {    
-    map_set(&m, "test.gilgil.net", md5_crypt("test.gilgil.net"));
+    map_set(m, "test.gilgil.net", md5_crypt("test.gilgil.net"));
     printf("debug make mal list \n");
 }
 
