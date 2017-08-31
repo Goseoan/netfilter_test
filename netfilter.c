@@ -1,6 +1,7 @@
 #include "netfilter.h"
- 
-int find_url(const u_char * Buffer, char *m)
+#include "hashmap.h"
+
+int find_url(const u_char * Buffer, map_int_t *mal)
 {
     uint16_t iphdrlen;    
      
@@ -23,8 +24,8 @@ int find_url(const u_char * Buffer, char *m)
     strtok(tok_str," ");
     url = strtok(NULL," ");
 
-    //int *val =  map_get(&m, url);
-
+    int *val = map_get(&mal, url);
+    printf("debug ht get val \n");
 
     //printf ("\nmal_site : %s\n", mal_site);
     //printf ("url : %s\n", url);
@@ -32,8 +33,8 @@ int find_url(const u_char * Buffer, char *m)
     if(url == NULL)
     	return EXIT_FAILURE; 
 
-    if( memcmp(url,mal_site,sizeof(url)) == 0 )
-    //if(val)
+    //if( memcmp(url,mal_site,sizeof(url)) == 0 )
+    if(val)
     {
     	//printf("FIND MAL SITE\n");
     	return EXIT_SUCCESS;     	 
@@ -45,10 +46,10 @@ int find_url(const u_char * Buffer, char *m)
     }
 }
 
-void make_mal_list(map_int_t * m)
-{
-  // map_set(&m, "test.gilgil.net", md5_crypt("test.gilgil.net"));
-
+void make_mal_list(map_int_t  * m)
+{    
+    map_set(&m, "test.gilgil.net", md5_crypt("test.gilgil.net"));
+    printf("debug make mal list \n");
 }
 
 char* md5_crypt(char* msg)
@@ -77,6 +78,8 @@ char* md5_crypt(char* msg)
     printf("\ncrypt_msg : %s \n",crypt_msg);
     return crypt_msg;
 }
+
+
 
 
 

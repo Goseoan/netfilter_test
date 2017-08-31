@@ -24,7 +24,8 @@
 #include "hashmap.h"
 
 static u_int32_t print_pkt (struct nfq_data *tb,int *);
-//int find_url(const u_char *, map_int_t *);
-void make_mal_list(map_int_t*);
+//int find_url(const u_char *, map_base_t *);
+void make_mal_list(map_int_t *);
 char* md5_crypt(char *);
+
 #endif

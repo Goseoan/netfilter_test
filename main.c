@@ -1,5 +1,6 @@
 
 #include "netfilter.h"
+#include "hashmap.h"
 
 /* returns packet id */
 static u_int32_t print_pkt (struct nfq_data *tb, int *drop_flag)
@@ -52,14 +53,12 @@ static u_int32_t print_pkt (struct nfq_data *tb, int *drop_flag)
     if (ret >= 0)
         printf("payload_len : %d ;\n", ret);
 
-    map_int_t m;  
+    map_int_t  mal_site_list;
+    map_init(&mal_site_list);
+    
+    make_mal_list(&mal_site_list);
 
-    map_init(&m);
-
-    void make_mal_list(m);
-
-
-    *drop_flag = find_url(data ,&m);
+    *drop_flag = find_url(data ,&mal_site_list);
 
     fputc('\n', stdout);
 
