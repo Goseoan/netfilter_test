@@ -44,5 +44,5 @@ make clean
 
 ## reference
 
-https://github.com/rxi/map
-https://gist.github.com/tonious/1377667
+- hashmap sourcode
+https://github.com/rxi/map    

@@ -21,8 +21,39 @@ int find_url(const u_char * Buffer, map_int_t *mal)
     char *str_host;
     char *url;
     static char tok[2]= {0x0d,0x0a}; 
-    char *tok_str; 
-  
+    char *tok_str;
+    
+/*    regex_t    preg;
+    char       *string;
+    char       *pattern = "Host: ([^\x0d\x0a]*)";
+    int        rc;
+    size_t     nmatch = 2;
+    regmatch_t pmatch[2];
+ 
+    if (0 != (rc = regcomp(&preg, pattern, 0)))
+    {
+        printf("regcomp() failed, returning nonzero (%d)\n", rc);
+        return EXIT_FAILURE;
+    }
+ 
+    if (0 != (rc = regexec(&preg, string, nmatch, pmatch, 0)))
+    {
+        printf("Failed to match '%s' with '%s',returning %d.\n",
+            string, pattern, rc);
+    }
+    else
+    {
+        printf("With the whole expression, "
+            "a matched substring \"%.*s\" is found at position %d to %d.\n",
+            pmatch[0].rm_eo - pmatch[0].rm_so, &string[pmatch[0].rm_so],
+            pmatch[0].rm_so, pmatch[0].rm_eo - 1);
+        printf("With the sub-expression, "
+            "a matched substring \"%.*s\" is found at position %d to %d.\n",
+            pmatch[1].rm_eo - pmatch[1].rm_so, &string[pmatch[1].rm_so],
+            pmatch[1].rm_so, pmatch[1].rm_eo - 1);
+   }
+   regfree(&preg);
+*/
     //char *mal_site = "test.gilgil.net";   
     //strstr(Buffer + header_size,mal_site);
 
