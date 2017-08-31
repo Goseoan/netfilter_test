@@ -19,4 +19,4 @@
 # 	rm *.o netfilter_test
 
 netfilter_test: main.c netfilter.c hashmap.c
-	gcc -o netfilter_test main.c netfilter.c hashmap.c -lcrypt -lnetfilter_queue
+	gcc -o netfilter_test main.c netfilter.c hashmap.c -lcrypt -lnetfilter_queue -g
